@@ -111,19 +111,16 @@ An incomplete list of key concepts for web development. Keep updating.
      ```
   5. Simutaneous requests
 
-  ````axios.all([
+  ```axios.all([
       axios.get(URL1),
       axios.get(URL2)
   ])
   .then(axios.spread((obj1,obj2)=>{
       //both requests are now complete
       //handle responses
-  }))```
-
-
+  }))
+  ```
   Sources:
-
-  ````
 
 1. https://www.w3schools.com/js/js_json_xml.asp
 2. https://www.w3schools.com/xml/xml_http.asp
