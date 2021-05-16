@@ -72,16 +72,44 @@ An incomplete list of key concepts for web development. Keep updating
 
   2. Response timeout
      you can use the optional `timeout` property in the config object to set the number of msec before the request is aborted. Example:
-     `axios({ method:'post', url:'/login', timeout: 4000, //4s data:{ firstName:'John', lastName:'Doe' } }) .then(response=>{console.log()}) .catch(error=?console.error('timeout));`
+     `axios({ `
+     `method:'post', `
+     `url:'/login', `
+     `timeout: 4000, //4s `
+     `data:{ firstName:'John', lastName:'Doe' } }) `
+     `.then(response=>{console.log()}) `
+     `.catch(error=?console.error('timeout));`
      which is not as simple using `fetch()`
 
   3. Automatic JSON data transformation
      Axios automatically stringifies the data when sending requests
 
   4. HTTP interceptors
-     One of the key features of Axios is its ability to intercept HTTP requests.
+     One of the key features of Axios is its ability to intercept HTTP requests. HTTP intercepts come in handy when you need to examine or change HTTP requests from your application to the server or vica versa. With interceptors, you won't have to write separate code for each HTTP request. In the following example, `axios.interceptors.request.use()` method is used to define a code to be run before an HTTP request is sent.
+     ```
+     axios.interceptors.request.use(config=>{
+         console.log('request was sent);
+         return config;
+     });
+     axios.get(URL)
+     .then(response=>{
+         console.log(response.data);
+     })
+     ```
+  5. Simutaneous requests
+
+  ````axios.all([
+      axios.get(URL1),
+      axios.get(URL2)
+  ])
+  .then(axios.spread((obj1,obj2)=>{
+      //both requests are now complete
+      //handle responses
+  }))```
 
   Sources:
+
+  ````
 
 1. https://www.w3schools.com/js/js_json_xml.asp
 2. https://www.w3schools.com/xml/xml_http.asp
