@@ -1,6 +1,6 @@
-# webDev
+# WebDev
 
-An incomplete list of key concepts for web development. Keep updating
+An incomplete list of key concepts for web development. Keep updating.
 
 # 1. XML v.s. JSON
 
@@ -27,21 +27,30 @@ An incomplete list of key concepts for web development. Keep updating
 - Javascript is a single-thread language, we don't want blocking script- imagine if every network that took time to give us a response blocked any other operations from executing
 
 - AJAX: "Asynchronous Javascript and XML"
-  allows us to build Single Page Applications (SPAs): "An SPA is a web application or website that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from a server"
+  Allows us to build Single Page Applications (SPAs): "An SPA is a web application or website that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from a server"
 
-- fetch('URL'): the Fetch API
+- Fetch('URL'): the Fetch API
 
-  1.  the simplest use of fetch takes one argument- the path to the resource you want to fetch- and returns a promise containing the response body. you can make HTTP requests (GET, POST etc.), downlaod, and upload files
-  2.  use fetch() with async/ await
+  1.  The simplest use of fetch takes one argument- the path to the resource you want to fetch- and returns a promise containing the response body. you can make HTTP requests (GET, POST etc.), downlaod, and upload files
+  2.  Use fetch() with async/ await
 
-  `async function fetchSomething(){ const response= await fetch(resource[, options]); console.log(response); }`
+  ```
+  async function fetchSomething(){ 
+  const response= await fetch(resource[, options]); 
+  console.log(response); 
+  }
+  ```
 
-  resource is the URL string where the data locate at
-  options is the configuration object with properties like method, headers, body, etc
+  `resource` is the URL string where the data locate at
+  `options` is the configuration object with properties like method, headers, body, etc
 
-  fetch() starts a request and returns promise. When the request completes, the promise is resovled with the Response object, which is a generic placeholder for multiple data formats. For example, you can specify the data type JSON by doing the following:
+  `fetch()` starts a request and returns promise. When the request completes, the promise is resovled with the Response object, which is a generic placeholder for multiple data formats. For example, you can specify the data type JSON by doing the following:
 
-  `const response= await fetch(resourceURL); const data=await response.json(); retrun data;`
+  ```
+  const response= await fetch(resourceURL); 
+  const data=await response.json(); 
+  retrun data;
+  ```
 
   `response.json()` is a method on the Response object that lets you extract a JSON object from the response. Other methods are: `response.text()`, `response.formData()`...
 
@@ -59,7 +68,11 @@ An incomplete list of key concepts for web development. Keep updating
 
   We can thus use these 2 properties to do error handling:
 
-  `if(!response.ok){ const message=`error:${response.status}`; throw new Error(message); }`
+  ```
+  if(!response.ok){ 
+    const message=`error:${response.status}`; 
+    throw new Error(message); }
+   ```
 
 - Axios
 
@@ -73,12 +86,12 @@ An incomplete list of key concepts for web development. Keep updating
   2. Response timeout
      you can use the optional `timeout` property in the config object to set the number of msec before the request is aborted. Example:
      `axios({ `
-     `method:'post', `
-     `url:'/login', `
-     `timeout: 4000, //4s `
-     `data:{ firstName:'John', lastName:'Doe' } }) `
-     `.then(response=>{console.log()}) `
-     `.catch(error=?console.error('timeout));`
+      `method:'post', `
+      `url:'/login', `
+      `timeout: 4000, //4s `
+      `data:{ firstName:'John', lastName:'Doe' } }) `
+      `.then(response=>{console.log()}) `
+      `.catch(error=?console.error('timeout));`
      which is not as simple using `fetch()`
 
   3. Automatic JSON data transformation
@@ -106,6 +119,7 @@ An incomplete list of key concepts for web development. Keep updating
       //both requests are now complete
       //handle responses
   }))```
+
 
   Sources:
 
