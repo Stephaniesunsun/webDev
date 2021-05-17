@@ -120,6 +120,24 @@ An incomplete list of key concepts for web development. Keep updating.
       //handle responses
   }))
   ```
+  
+- Javascript
+  
+  1. Array.prototype.splice()
+      Changes the contents of an array by removing or replacing existing elements and/or add new elements in place. Example:
+      ```
+      const arr=[1,2,3]
+      arr.splice(1,2) //return 2,3
+      arr //return 1
+      ```
+  2. Array.prototype.slice()
+      Returns a shallow copy (the original array not modified) of an array into a new array object selected from start to end (end not included), where start and end are indices, can be used to return a portion of an array. Example:
+      ```
+      const arr=[1,2,3]
+      arr.slice(1,2)//return 2
+      arr //return 1,2,3
+      ```
+      
   Sources:
 
 1. https://www.w3schools.com/js/js_json_xml.asp
