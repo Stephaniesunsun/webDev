@@ -137,7 +137,20 @@ An incomplete list of key concepts for web development. Keep updating.
       arr.slice(1,2)//return 2
       arr //return 1,2,3
       ```
+   3. Array/ Object spread operator
+      When using on an object, it spreads the object to get all the properties (spreading over the keys and values). When we are assigning a new object with different certain properties, we only need to specifies the ones being changed, left other properties the same. 
       
+      When using inside another array, it's similar to Array.concat, where we spread all the elements of the first array into the new one, and it allows duplicate values.
+      
+      As a rest operator: as the function's argument. It enables us to create functions that can take an indefinite number of arguments, also called functions of variable arity or variadic functions. Example:
+      ```
+      function sum (...nums){
+        return nums.reduce((accu, element))=>{accu+=element;}
+      }
+      sum(1,6,4);
+      ```
+      As what we would normally do (or not), we pass the arguments without spreading. But note that by doing this we are essentially passing in an object with all the values and a ```length``` property to the function.
+  
   Sources:
 
 1. https://www.w3schools.com/js/js_json_xml.asp
@@ -145,3 +158,4 @@ An incomplete list of key concepts for web development. Keep updating.
 3. http://comet.lehman.cuny.edu/sfulakeza/su19/tpp/slides/Day%206/AJAX,%20fetch,%20and%20Axios.pdf
 4. https://dmitripavlutin.com/javascript-fetch-async-await/
 5. https://blog.logrocket.com/axios-or-fetch-api/
+6. https://oprearocks.medium.com/what-do-the-three-dots-mean-in-javascript-bc5749439c9a
