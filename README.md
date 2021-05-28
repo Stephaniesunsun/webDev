@@ -130,7 +130,7 @@ An incomplete list of key concepts for web development. Keep updating.
       arr.splice(1,2) //return 2,3
       arr //return 1
       ```
-  2. Array.prototype.slice()
+  2. Array.prototype.slice(), also can be used in String.
       Returns a shallow copy (the original array not modified) of an array into a new array object selected from start to end (end not included), where start and end are indices, can be used to return a portion of an array. Example:
       ```
       const arr=[1,2,3]
